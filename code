@@ -1,0 +1,117 @@
+#include <iostream>
+using namespace std;
+
+const int NUM_ROOMS = 10;
+bool rooms[NUM_ROOMS] = {false}; 
+
+void displayMenu() {
+    cout << "\n\nHotel Management System Menu:" << endl;
+    cout << "1. Book a room" << endl;
+    cout << "2. Check out" << endl;
+    cout << "3. View room availability" << endl;
+    cout << "4. Order Food" << endl;
+    cout << "5. Information regarding sales and collection " << endl;
+    cout << "6. Exit" << endl;
+}
+
+void bookRoom() {
+    for (int i = 0; i < NUM_ROOMS; ++i) {
+        if (!rooms[i]) {
+            rooms[i] = true;
+            cout << "\nRoom " << (i + 1) << " booked successfully." << endl;
+            return;
+        }
+    }
+    cout << "Sorry, no rooms available." << endl;
+}
+
+void checkOut() {
+    int roomNumber;
+    cout << "Enter the room number to check out: ";
+    cin >> roomNumber;
+    if (roomNumber >= 1 && roomNumber <= NUM_ROOMS) {
+        rooms[roomNumber - 1] = false;
+        cout << "Room " << roomNumber << " checked out successfully." << endl;
+    } else {
+        cout << "Invalid room number." << endl;
+    }
+}
+
+void viewRoomAvailability() {
+    cout << "Room Availability:" << endl;
+    for (int i = 0; i < NUM_ROOMS; ++i) {
+        cout << "Room " << (i + 1) << ": " << (rooms[i] ? "Occupied" : "Vacant") << endl;
+    }
+}
+void orderfood(){
+    int ch,qu;
+    cout << "1. Pasta" << endl;
+    cout << "2. Burger" << endl;
+    cout << "3. Noodles" << endl;
+    cout << "4. Pizza" << endl;
+    cout << "5. Milk Shake" << endl<<endl<<endl;
+    cin>>ch;
+    switch(ch){
+        case 1:
+            cout<<"Enter Pasta Quantity : ";
+            cin>>qu;
+            cout<<qu<<" Pasta is the order! "<<endl;
+            break;
+        case 2:
+            cout<<"Enter burger Quantity : ";
+            cin>>qu;
+            cout<<qu<<" Burger is the order! "<<endl;
+            break;
+        case 3:
+            cout<<"Enter Noodles Quantity : ";
+            cin>>qu;
+            cout<<qu<<" Noodles is the order! "<<endl;
+            break;
+        case 4:
+            cout<<"Enter Pizza Quantity : ";
+            cin>>qu;
+            cout<<qu<<" Pizza is the order! "<<endl;
+            break;
+        case 5:
+            cout<<"Enter Milk Shake Quantity : ";
+            cin>>qu;
+            cout<<qu<<" Milk Shake is the order! "<<endl;
+            break;
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+    }
+}
+
+int main() {
+    int choice;
+    do {
+        displayMenu();
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+        m:
+        switch (choice) {
+            case 1:
+                bookRoom();
+                break;
+            case 2:
+                checkOut();
+                break;
+            case 3:
+                viewRoomAvailability();
+                break;
+             case 4:
+                cout << "\nPlesae Select from the food items you want to eat " << endl;
+                orderfood();
+                break;
+            case 5:
+                cout << "Information regarding sales and collection " << endl;
+                break;
+            case 6:
+                cout << "Exiting program. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice !!  Please try again." << endl;
+        }
+    } while (choice != 6);
+    goto m;
+}
