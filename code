@@ -3,9 +3,10 @@ using namespace std;
 
 const int NUM_ROOMS = 10;
 bool rooms[NUM_ROOMS] = {false}; 
+int sum=0;
 
 void displayMenu() {
-    cout << "\n\nHotel Management System Menu:" << endl;
+    cout << "\n----- Hotel Management System Menu -----" << endl;
     cout << "1. Book a room" << endl;
     cout << "2. Check out" << endl;
     cout << "3. View room availability" << endl;
@@ -45,7 +46,8 @@ void viewRoomAvailability() {
 }
 void orderfood(){
     int ch,qu;
-    cout << "1. Pasta" << endl;
+    int cho;
+    cout << "\n1. Pasta" << endl;
     cout << "2. Burger" << endl;
     cout << "3. Noodles" << endl;
     cout << "4. Pizza" << endl;
@@ -56,29 +58,104 @@ void orderfood(){
             cout<<"Enter Pasta Quantity : ";
             cin>>qu;
             cout<<qu<<" Pasta is the order! "<<endl;
+            sum=sum+(qu*100);
+            cout<<"\n1. Add more items "<<endl;
+            cout<<"2. Generate Bill "<<endl;
+            cout<<"\nEnter your choice : ";
+            cin>>cho;
+            if (cho>2){
+                cout<<"Invalid choice !! please select again "<<endl;
+                orderfood();
+            }
+            else if(cho==1){
+                orderfood();
+            }
+            else if(cho==2){
+                cout<<"Your total bill is "<<sum<<" rupees "<<endl;
+            }
             break;
         case 2:
             cout<<"Enter burger Quantity : ";
             cin>>qu;
             cout<<qu<<" Burger is the order! "<<endl;
+            sum=sum+(qu*150);
+            cout<<"\n1. Add more items "<<endl;
+            cout<<"2. Generate Bill "<<endl;
+            cout<<"\nEnter your choice : ";
+            cin>>cho;
+            if (cho>2){
+                cout<<"Invalid choice !! please select again "<<endl;
+                orderfood();
+            }
+            else if(cho==1){
+                orderfood();
+            }
+            else if(cho==2){
+                cout<<"Your total bill is "<<sum<<" rupees "<<endl;
+            }
             break;
         case 3:
             cout<<"Enter Noodles Quantity : ";
             cin>>qu;
             cout<<qu<<" Noodles is the order! "<<endl;
+            sum=sum+(qu*80);
+            cout<<"\n1. Add more items "<<endl;
+            cout<<"2. Generate Bill "<<endl;
+            cout<<"\nEnter your choice : ";
+            cin>>cho;
+            if (cho>2){
+                cout<<"Invalid choice !! please select again "<<endl;
+                orderfood();
+            }
+            else if(cho==1){
+                orderfood();
+            }
+            else if(cho==2){
+                cout<<"Your total bill is "<<sum<<" rupees "<<endl;
+            }
             break;
         case 4:
             cout<<"Enter Pizza Quantity : ";
             cin>>qu;
             cout<<qu<<" Pizza is the order! "<<endl;
+            sum=sum+(qu*180);
+            cout<<"\n1. Add more items "<<endl;
+            cout<<"2. Generate Bill "<<endl;
+            cout<<"\nEnter your choice : "<<endl;
+            cin>>cho;
+            if (cho>2){
+                cout<<"Invalid choice !! please select again "<<endl;
+                orderfood();
+            }
+            else if(cho==1){
+                orderfood();
+            }
+            else if(cho==2){
+                cout<<"Your total bill is "<<sum<<" rupees "<<endl;
+            }
             break;
         case 5:
             cout<<"Enter Milk Shake Quantity : ";
             cin>>qu;
             cout<<qu<<" Milk Shake is the order! "<<endl;
+            sum=sum+(qu*110);
+            cout<<"\n1. Add more items "<<endl;
+            cout<<"2. Generate Bill "<<endl;
+            cout<<"\nEnter your choice : "<<endl;
+            cin>>cho;
+            if (cho>2){
+                cout<<"Invalid choice !! please select again "<<endl;
+                orderfood();
+            }
+            else if(cho==1){
+                orderfood();
+            }
+            else if(cho==2){
+                cout<<"Your total bill is "<<sum<<" rupees "<<endl;
+            }
             break;
         default:
-            cout << "Invalid choice. Please try again." << endl;
+            cout << "Invalid choice !! Please try again." << endl;
     }
 }
 
@@ -100,11 +177,12 @@ int main() {
                 viewRoomAvailability();
                 break;
              case 4:
-                cout << "\nPlesae Select from the food items you want to eat " << endl;
+                cout << "\n---Plesae Select from the food items you want to eat--- " << endl;
+                sum=0;
                 orderfood();
                 break;
             case 5:
-                cout << "Information regarding sales and collection " << endl;
+                cout << "---Information regarding sales and collection--- " << endl;
                 break;
             case 6:
                 cout << "Exiting program. Goodbye!" << endl;
