@@ -51,7 +51,7 @@ void orderfood(){
     cout << "2. Burger" << endl;
     cout << "3. Noodles" << endl;
     cout << "4. Pizza" << endl;
-    cout << "5. Milk Shake" << endl<<endl<<endl;
+    cout << "5. Milk Shake" << endl<<endl;
     cin>>ch;
     switch(ch){
         case 1:
