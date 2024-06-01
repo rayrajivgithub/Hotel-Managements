@@ -3,7 +3,7 @@ using namespace std;
 
 const int NUM_ROOMS = 10;
 bool rooms[NUM_ROOMS] = {false}; 
-int sum=0;
+int sum=0,add=0;
 
 void displayMenu() {
     cout << "\n----- Hotel Management System Menu -----" << endl;
@@ -20,6 +20,7 @@ void bookRoom() {
         if (!rooms[i]) {
             rooms[i] = true;
             cout << "\nRoom " << (i + 1) << " booked successfully." << endl;
+            add=add+1000;
             return;
         }
     }
@@ -59,6 +60,7 @@ void orderfood(){
             cin>>qu;
             cout<<qu<<" Pasta is the order! "<<endl;
             sum=sum+(qu*100);
+            add=add+sum;
             cout<<"\n1. Add more items "<<endl;
             cout<<"2. Generate Bill "<<endl;
             cout<<"\nEnter your choice : ";
@@ -79,6 +81,7 @@ void orderfood(){
             cin>>qu;
             cout<<qu<<" Burger is the order! "<<endl;
             sum=sum+(qu*150);
+            add=add+sum;
             cout<<"\n1. Add more items "<<endl;
             cout<<"2. Generate Bill "<<endl;
             cout<<"\nEnter your choice : ";
@@ -99,6 +102,7 @@ void orderfood(){
             cin>>qu;
             cout<<qu<<" Noodles is the order! "<<endl;
             sum=sum+(qu*80);
+            add=add+sum;
             cout<<"\n1. Add more items "<<endl;
             cout<<"2. Generate Bill "<<endl;
             cout<<"\nEnter your choice : ";
@@ -119,6 +123,7 @@ void orderfood(){
             cin>>qu;
             cout<<qu<<" Pizza is the order! "<<endl;
             sum=sum+(qu*180);
+            add=add+sum;
             cout<<"\n1. Add more items "<<endl;
             cout<<"2. Generate Bill "<<endl;
             cout<<"\nEnter your choice : "<<endl;
@@ -139,6 +144,7 @@ void orderfood(){
             cin>>qu;
             cout<<qu<<" Milk Shake is the order! "<<endl;
             sum=sum+(qu*110);
+            add=add+sum;
             cout<<"\n1. Add more items "<<endl;
             cout<<"2. Generate Bill "<<endl;
             cout<<"\nEnter your choice : "<<endl;
@@ -182,7 +188,7 @@ int main() {
                 orderfood();
                 break;
             case 5:
-                cout << "---Information regarding sales and collection--- " << endl;
+                cout << "Total collection is "<<add<<" repees " << endl;
                 break;
             case 6:
                 cout << "Exiting program. Goodbye!" << endl;
@@ -190,6 +196,6 @@ int main() {
             default:
                 cout << "Invalid choice !!  Please try again." << endl;
         }
-    } while (choice != 6);
+    } while (choice !=6.5 );
     goto m;
 }
